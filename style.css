@@ -56,16 +56,94 @@ h1 {
     padding: 5px;
 
     position:auto;
-    margin:10px 10px 10px 150px;
+    margin:10px 10px 10px 250px;
 
+border-radius:25px;
+box-shadow: 15px 16px 26px 2px rgba(0,0,0,0.83);
+
+
+}
+#box1:hover{
+    background-color:lightgray;
 }
 
 #box2{
     background-color:lightgray;
     border: 2px solid black;
     padding: 5px;
-
     position:auto;
-    margin:10px 150px 10px 10px;
+    margin:50px 250px 10px 10px;
+box-shadow: 15px 16px 26px 2px rgba(0,0,0,0.83);
+border-radius:25px;
+}
 
+#box2:hover{
+    background-color:white;
+}
+
+div {
+    transition: width 2s linear 1s;
+}
+
+.container{
+
+	counter-reset:none;
+
+	position:relative;
+	text-align:center;
+	padding:20px 0;
+	width:420px;
+	height: 160px;
+	margin: 0 auto;
+}
+
+.container::before{
+	display: block;
+	content:'Contact me here:';
+	font-size:18px;
+	font-weight:bold;
+	text-align:center;
+	padding:15px;
+}
+
+.container span{
+	display:inline-block;
+	padding:2px 6px;
+	background-color:#78CCD2;
+	color:#186C72;
+	border-radius:4px;
+	margin:3px;
+	cursor:default;
+}
+
+
+
+.container span::after{
+
+	counter-increment: none;
+
+
+	display:inline-block;
+	padding:4px;
+}
+
+/* Pseudo elements can even access attributes of their parent element */
+
+.container span::before{
+	position:absolute;
+	bottom:0;
+	left:0;
+	width:100%;
+	content:attr(data-title);
+	color:#666;
+
+	opacity:0;
+
+	/* Animate the transitions */
+	-webkit-transition:opacity 0.4s;
+	transition:opacity 0.4s;
+}
+
+.container span:hover::before{
+	opacity:1;
 }
